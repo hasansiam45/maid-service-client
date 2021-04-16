@@ -1,19 +1,19 @@
-ul{
+.main-menu ul {
  margin: 0;
  padding: 0;
 }
 
-nav ul{
+.main-menu nav ul {
 display: flex;
 list-style: none;
 }
 
-nav ul li{
+.main-menu nav ul li{
  margin-right: 20px;
  padding: 20px;
 }
 
-a{
+.main-menu a {
    transition: 0.4s;
    color: #ffffff;
    font-size: 20px;
@@ -22,7 +22,7 @@ a{
    margin: 0 10px;
    text-decoration: none;
 }
-a:hover{
+.main-menu a:hover {
   background-color: #ffffff;
   color: gray;
   padding: 24px 10px;
@@ -31,17 +31,17 @@ a:hover{
 
 /* media query */
 @media(max-width: 768px){
- nav{
+ .main-menu nav {
   float: left;
   display: block;
   background-color: black;
   width: 100%;
  }
- nav ul{
+ .main-menu nav ul {
   display: block;
 
 }
- nav ul li a{
+ .main-menu nav ul li a {
   color: white;
 }
 }

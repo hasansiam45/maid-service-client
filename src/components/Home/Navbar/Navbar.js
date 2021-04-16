@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import './Navbar.css';
 const Navbar = () => {
     return (
-    <div className="bg-dark">
+    <div className="bg-dark main-menu">
         <nav>
            <ul>
             <li className="mr-5">
@@ -21,7 +21,7 @@ const Navbar = () => {
             </li>
                 
             <li className="mr-5">
-              <Link to="/users">Dashboard</Link>
+              <Link to="/dashboard">Dashboard</Link>
             </li>
             <li className="mr-5">
               <Link to="/users">Contact</Link>

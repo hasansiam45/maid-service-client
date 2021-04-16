@@ -1,0 +1,12 @@
+.dashboard-sidebar{
+ height: 95vh;
+ background-color: cyan;
+ text-align: center;
+}
+.dashboard-sidebar ul{
+ list-style: none;
+}
+.dashboard-sidebar ul li{
+ border-bottom: 2px solid gray;
+ padding: 10px;
+}
