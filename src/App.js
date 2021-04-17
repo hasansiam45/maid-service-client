@@ -41,9 +41,9 @@ function App() {
           <Dashboard></Dashboard>
           </Route>
           
-          <Route path="/addServices">
+          <PrivateRoute path="/addServices">
           <AddServices></AddServices>
-          </Route>
+          </PrivateRoute>
 
           <PrivateRoute path="/addReview">
           <AddReview></AddReview>
