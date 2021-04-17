@@ -3,6 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useForm } from "react-hook-form";
 import Sidebar from '../Sidebar/Sidebar';
+import Navbar from '../../Home/Navbar/Navbar';
 const AddServices = () => {
  const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const [imgUrl, setImgUrl] = useState(null);
@@ -45,6 +46,7 @@ const AddServices = () => {
     
     return (
         <div className="row">
+            <Navbar></Navbar>
             <div className="col-md-2">
                 <Sidebar></Sidebar>
             </div>

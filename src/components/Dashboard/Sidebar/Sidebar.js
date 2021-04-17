@@ -6,18 +6,21 @@ import './Sidebar.css';
 const Sidebar = () => {
     return (
         <div className="dashboard-sidebar">
-            <ul>
+           <ul>
+               <li>
+                  <Link to="/allBookings">All Bookings</Link>
+                </li>
                 <li>
                   <Link to="/addServices">Add Services</Link>
                 </li>
                 <li>
-                  <Link to="/addServices">Manage Services</Link>               
+                  <Link to="/manageServices">Manage Services</Link>               
                 </li>
                 <li>
-                  <Link to="/addServices">Bookings</Link>           
+                  <Link to="/bookings">My Bookings</Link>           
                 </li>
                 <li>
-                  <Link to="/addServices">Add Review</Link>
+                  <Link to="/addReview">Add Review</Link>
                 </li>
             </ul>
         </div>

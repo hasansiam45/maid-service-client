@@ -47,8 +47,8 @@ const Login = () => {
             <Navbar></Navbar>
               <div style={{textAlign: 'center'}}>
             
-            <h1>hello{ }</h1>
-             <button onClick={handleSignIn}>Log In Using Google </button>
+           
+             <button className="btn btn-success m-4" onClick={handleSignIn}>Log In Using Google </button>
             
             
         
