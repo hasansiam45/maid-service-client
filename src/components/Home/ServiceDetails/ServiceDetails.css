@@ -1,0 +1,10 @@
+
+.serviceDiv{
+ background-color: rgb(4, 60, 4);
+ color: white;
+ transition: all 1.5s;
+}
+.serviceDiv:hover{
+ cursor: pointer;
+ background-color: black;
+}

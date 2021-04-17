@@ -5,10 +5,12 @@ import {
     useForm
 } from "react-hook-form";
 import Navbar from '../Navbar/Navbar';
+import ProcessPayment from '../ProcessPayment/ProcessPayment';
 const Book = () => {
     
     const { id } = useParams();
     const [allService, setAllService] = useState([]);
+    const [formData, setFormData] = useState(null);
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     
@@ -26,7 +28,10 @@ const Book = () => {
     
     const serviceDetails = allService.find(details => details._id == id);
     const onSubmit = data => {
-           const bookingDetails = { ...loggedInUser, service: serviceDetails?.service, price: serviceDetails?.price, phone: data.phone, address: data.address, bookingTime: new Date() };
+         setFormData(data)
+    }
+    const handlePaymentSuccess = paymentId => {
+      const bookingDetails = { ...loggedInUser, service: serviceDetails?.service, price: serviceDetails?.price, phone: formData.phone, address: formData.address, paymentId, bookingTime: new Date() };
            
           fetch('http://localhost:5000/addBooking', {
             method: 'POST',
@@ -41,36 +46,39 @@ const Book = () => {
                       alert('Booking Placed Successfully!')
                   }
               })
-        }
+    
+    }
     return (
         <div>
             <Navbar></Navbar>
             <div className="container">
             <div className="row my-3">
-            <div className="col-md-6 text-center">
-                <h1 className="p-2">Welcome {loggedInUser.name}</h1>
-                
-                <h2>{serviceDetails?.service}</h2>
-                <img style={{height: '350px', width: '350px'}} src={serviceDetails?.imgUrl} alt="" />
-                <h5>Price: {serviceDetails?.price}$/day</h5>
-
-                <h3 className="p-2">Want this {serviceDetails?.name} service ? Book Now! =>></h3>
-          
-                
-            </div>
-            
-            <div className="col-md-6 text-center bg-dark p-3 my-3 rounded">
-            <form className="mt-5" onSubmit={handleSubmit(onSubmit)}>
+      
+                        <div className="col-md-6 text-center bg-dark p-3 my-3 rounded" style={{display: formData? 'none' : 'block'}}>
+                        <form className="mt-5 text-white" onSubmit={handleSubmit(onSubmit)}>
+                            <label htmlFor="">Name: </label>
+                            <input className="mx-2" {...register("name")} defaultValue= {loggedInUser.name} /> <br/>
+                            <label htmlFor="">Service: </label>
+                            <input className="mx-2" {...register("service")} defaultValue= {serviceDetails?.service} /> <br />
+                            <label htmlFor="">Price: </label>
+                            <input className="mx-2" {...register("price")} defaultValue= {serviceDetails?.price} /> <br/>
+                             <label htmlFor="">Your Address: </label>
+                            <input className="m-2" {...register("address")} placeholder=" Your Address" /> <br />
+                            <label htmlFor="">Your Number: </label>
+                            <input className="m-2" {...register("phone")} placeholder=" Your number" /> <br/>
+                                                        
+                            <input className="mt-3 btn btn-warning" type="submit" value="Place Booking" />
+                            
                     
-                    <input className="m-2" {...register("address")} placeholder="Your Address"  /> <br/>
-                    
-                    <input className="m-2" {...register("phone")} placeholder="Your number" /> <br/>
-                                                
-                  <input className="mt-3 btn btn-warning" type="submit" value="Place Booking" />
+                        </form>
+                        </div>
                     
                     
-                    </form>
-            </div>
+                    <div className="col-md-6">
+                        <div style={{display: formData? 'block' : 'none'}}>
+                            <ProcessPayment handlePaymentSuccess={handlePaymentSuccess}></ProcessPayment>
+                        </div>
+                    </div>
 
             </div>
         </div>
