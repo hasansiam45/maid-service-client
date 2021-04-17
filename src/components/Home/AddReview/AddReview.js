@@ -13,7 +13,7 @@ const AddReview = () => {
                 review: data.review
             }
             console.log(reviewData)
-            const url = `http://localhost:5000/addReviews`
+            const url = `https://mysterious-peak-96763.herokuapp.com/addReviews`
 
             fetch(url, {
                     method: 'POST',

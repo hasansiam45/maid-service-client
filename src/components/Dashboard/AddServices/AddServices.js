@@ -15,7 +15,7 @@ const AddServices = () => {
             price: data.price
         }
         console.log(serviceData)
-        const url = `http://localhost:5000/addServices`
+        const url = `https://mysterious-peak-96763.herokuapp.com/addServices`
 
         fetch(url, {
                 method: 'POST',

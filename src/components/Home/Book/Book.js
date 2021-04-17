@@ -16,7 +16,7 @@ const Book = () => {
     
     useEffect(() => {
 
-  fetch('http://localhost:5000/services')
+  fetch('https://mysterious-peak-96763.herokuapp.com/services')
       .then(res => res.json())
       .then(data => {
           console.log(data)
@@ -33,7 +33,7 @@ const Book = () => {
     const handlePaymentSuccess = paymentId => {
       const bookingDetails = { ...loggedInUser, service: serviceDetails?.service, price: serviceDetails?.price, phone: formData.phone, address: formData.address, paymentId, bookingTime: new Date() };
            
-          fetch('http://localhost:5000/addBooking', {
+          fetch('https://mysterious-peak-96763.herokuapp.com/addBooking', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(bookingDetails)
