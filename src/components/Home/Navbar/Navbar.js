@@ -1,33 +1,36 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import './Navbar.css';
+
 const Navbar = () => {
     return (
     <div className="bg-dark main-menu">
         <nav>
            <ul>
             <li className="mr-5">
-              <Link to="/">Home</Link>
+              <Link to="/home">Home</Link>
             </li>
             <li className="mr-5">
-              <Link to="/about">Our Services</Link>
+              <Link to="/">Our Services</Link>
             </li>
             <li className="mr-5">
-              <Link to="/users">Review</Link>
+              <Link to="/addReview">Add Review</Link>
             </li>
                 
             <li className="mr-5">
-              <Link to="/users">Login</Link>
+              <Link to="/login">Login</Link>
             </li>
                 
             <li className="mr-5">
               <Link to="/dashboard">Dashboard</Link>
             </li>
             <li className="mr-5">
-              <Link to="/users">Contact</Link>
+              <Link to="/">Contact</Link>
             </li>
           </ul>
         </nav>
+        
+
     </div>
     );
 }

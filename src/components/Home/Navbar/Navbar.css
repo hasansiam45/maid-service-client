@@ -27,7 +27,7 @@ list-style: none;
   color: gray;
   padding: 24px 10px;
   text-decoration: none;
-}
+} 
 
 /* media query */
 @media(max-width: 768px){
