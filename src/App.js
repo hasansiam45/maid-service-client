@@ -37,13 +37,13 @@ function App() {
           <Home></Home>
           </Route>
           
-         <Route path="/dashboard">
+         <PrivateRoute path="/dashboard">
           <Dashboard></Dashboard>
-          </Route>
-          
-          <PrivateRoute path="/addServices">
-          <AddServices></AddServices>
           </PrivateRoute>
+          
+          <Route path="/addServices">
+          <AddServices></AddServices>
+          </Route>
 
           <PrivateRoute path="/addReview">
           <AddReview></AddReview>
@@ -57,17 +57,17 @@ function App() {
            <Book></Book>
           </PrivateRoute>
           
-           <PrivateRoute path="/bookings">
+           <Route path="/bookings">
           <Bookings></Bookings>
-          </PrivateRoute>
+          </Route>
           
-           <PrivateRoute path="/allBookings">
+           <Route path="/allBookings">
           <AllBookings></AllBookings>
-          </PrivateRoute>
+          </Route>
 
-          <PrivateRoute path="/manageServices">
+          <Route path="/manageServices">
           <ManageServices></ManageServices>
-          </PrivateRoute>
+          </Route>
 
         <Route exact path="/">
           <Home></Home>
